@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "940192124132",
+    "project_id": "pregnancy-apps",
+    "storage_bucket": "pregnancy-apps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940192124132:android:d875ab0408cfae6c4f30f1",
+        "android_client_info": {
+          "package_name": "com.pregnancy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU3YW-uZdGoWgygLULwoe3mJCerv5hAkY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

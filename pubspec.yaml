@@ -1,0 +1,86 @@
+name: apps_consultation_pregnant
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment: 
+  sdk: '>=3.4.3 <4.0.0'
+
+dependencies: 
+  cupertino_icons: ^1.0.6
+  get: 4.6.6
+  get_cli: ^1.8.1
+  shared_preferences: 2.2.3
+  gap: 3.0.1
+  flutter_svg: 2.0.10+1
+  logger: 2.3.0
+  intl: 0.19.0
+  flutter_native_splash: 2.4.1
+  lazy_load_indexed_stack: 1.1.0
+  carousel_slider_plus: ^6.0.0
+  fluttertoast: 8.2.6
+  web_socket_channel: 3.0.0
+  chat_bubbles: 1.6.0
+  video_player: 2.9.1
+  chewie: ^1.5.0
+  video_thumbnail: 0.5.3
+  image_picker: 1.1.2
+  dropdown_button2: 2.3.9
+  firebase_core: 3.3.0
+  flutter: 
+    sdk: flutter
+
+dev_dependencies: 
+  flutter_lints: 4.0.0
+  flutter_launcher_icons: 0.13.1
+  flutter_test: 
+    sdk: flutter
+
+flutter_launcher_icons: 
+  android: launcher_icon
+  image_path: assets/images/icon_app_logo.png
+  ios: true
+
+flutter: 
+  assets: 
+    - assets/
+    - assets/images/
+    - assets/fonts/
+  fonts: 
+    - family: RobotoBlack
+      fonts: 
+        - asset: assets/fonts/Roboto-Black.ttf
+    - family: RobotoBlackItalic
+      fonts: 
+        - asset: assets/fonts/Roboto-BlackItalic.ttf
+    - family: RobotoBold
+      fonts: 
+        - asset: assets/fonts/Roboto-Bold.ttf
+    - family: RobotoBoldItalic
+      fonts: 
+        - asset: assets/fonts/Roboto-BoldItalic.ttf
+    - family: RobotoItalic
+      fonts: 
+        - asset: assets/fonts/Roboto-Light.ttf
+    - family: RobotoLight
+      fonts: 
+        - asset: assets/fonts/Roboto-Light.ttf
+    - family: RobotoLightItalic
+      fonts: 
+        - asset: assets/fonts/Roboto-LightItalic.ttf
+    - family: RobotoMedium
+      fonts: 
+        - asset: assets/fonts/Roboto-Medium.ttf
+    - family: RobotoMediumItalic
+      fonts: 
+        - asset: assets/fonts/Roboto-MediumItalic.ttf
+    - family: RobotoRegular
+      fonts: 
+        - asset: assets/fonts/Roboto-Regular.ttf
+    - family: RobotoThin
+      fonts: 
+        - asset: assets/fonts/Roboto-Thin.ttf
+    - family: RobotoThinItalic
+      fonts: 
+        - asset: assets/fonts/Roboto-ThinItalic.ttf
+  uses-material-design: true
+
