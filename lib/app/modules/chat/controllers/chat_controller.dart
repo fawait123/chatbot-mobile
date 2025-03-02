@@ -8,7 +8,9 @@ import 'package:apps_consultation_pregnant/app/modules/chat/models/question_mode
 import 'package:apps_consultation_pregnant/app/modules/chat/models/question_model/question_model.dart';
 import 'package:apps_consultation_pregnant/app/modules/chat/views/chat_view.dart';
 import 'package:apps_consultation_pregnant/app/modules/chat/widgets/custom_dialog_question.dart';
+import 'package:apps_consultation_pregnant/app/modules/home/models/my_profile/user.dart';
 import 'package:apps_consultation_pregnant/app/modules/home/views/home_view.dart';
+import 'package:apps_consultation_pregnant/app/utils/service_preferences.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
@@ -28,7 +30,7 @@ class ChatController extends GetxController {
   ];
 
   int currentPage = 1;
-  int currentLimit = 10;
+  int currentLimit = 100000;
   RxBool isLoading = true.obs;
   ScrollController scrollController = ScrollController();
 
@@ -98,8 +100,10 @@ class ChatController extends GetxController {
 
   Future getMessage() async {
     isLoading.value = true;
+    User? myProfile = ServicePreferences.getMyProfile();
+    String? ids = myProfile?.sub;
     await ApiServices.getData(
-            'chatt?page=${currentPage}&limit${currentLimit}&filter=[{"key": "userID","value": "66c1fb47a39c921e1a4c4d8b"}]')
+            'chatt?page=${currentPage}&limit${currentLimit}&filter=[{"key": "userID","value": "$ids"}]')
         .then((value) {
       log('value: ${value}');
       var data = value['data'] as List;
