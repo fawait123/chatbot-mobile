@@ -109,11 +109,13 @@ class ChatController extends GetxController {
       }
       historyChat.addAll(rspChat);
       currentPage++;
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        scrollController.jumpTo(
-          scrollController.position.maxScrollExtent,
-        );
-      });
+      if (historyChat.length > 0) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          scrollController.jumpTo(
+            scrollController.position.maxScrollExtent,
+          );
+        });
+      }
       isLoading.value = false;
       update();
     }).onError((error, stackTrace) {
@@ -143,7 +145,9 @@ class ChatController extends GetxController {
     super.onInit();
     await getQuestion();
     await getMessage();
-    scrollController.addListener(onScroll);
+    if (scrollController.hasClients) {
+      scrollController.addListener(onScroll);
+    }
   }
 
   @override

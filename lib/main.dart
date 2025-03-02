@@ -1,3 +1,4 @@
+import 'package:apps_consultation_pregnant/app/modules/photo/controllers/photo_controller.dart';
 import 'package:apps_consultation_pregnant/app/utils/service_preferences.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,9 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initializeDateFormatting('id_ID', null);
   await ServicePreferences.init();
+  // Mendaftarkan controller di awal aplikasi
+  Get.put(PhotoController());
+
   runApp(
     LayoutBuilder(builder: (context, constraints) {
       return OrientationBuilder(builder: (context, orientation) {

@@ -1,3 +1,4 @@
+import 'package:apps_consultation_pregnant/app/modules/dashboard/controllers/dashboard_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,14 +10,16 @@ class CustomBottomNavbar extends StatelessWidget {
   final List? navigationItems;
   final int? selectedIndex;
   final Function(int)? onIndexChanged;
-  const CustomBottomNavbar(
-      {super.key,
-      this.navigationItems,
-      this.selectedIndex,
-      this.onIndexChanged});
+  CustomBottomNavbar({
+    super.key,
+    this.navigationItems,
+    this.selectedIndex,
+    this.onIndexChanged,
+  });
 
   @override
   Widget build(BuildContext context) {
+    DashboardController controller = Get.find<DashboardController>();
     return SizedBox(
       width: Get.width,
       height: Get.height / 10,
@@ -37,6 +40,7 @@ class CustomBottomNavbar extends StatelessWidget {
               return GestureDetector(
                 onTap: () {
                   onIndexChanged!(index);
+                  controller.onItemTapped(index);
                 },
                 child: index == selectedIndex
                     ? Column(

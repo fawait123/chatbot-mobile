@@ -15,7 +15,7 @@ class HomeController extends GetxController {
   //TODO: Implement HomeController
   DateTime timebackPressed = DateTime.now();
   int selectedIndex = 0;
-  Widget currentScreen = const DashboardView();
+  Widget currentScreen = DashboardView();
   List navigationItems = [
     {'label': 'Home', 'icon': Icons.home_rounded},
     {'label': 'Chat', 'icon': Icons.chat_bubble_rounded},

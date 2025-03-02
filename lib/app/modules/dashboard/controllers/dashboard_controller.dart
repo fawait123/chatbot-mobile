@@ -1,5 +1,6 @@
 import 'package:apps_consultation_pregnant/app/core/constants/constant_asset.dart';
 import 'package:apps_consultation_pregnant/app/modules/dashboard/models/dashboard_model.dart';
+import 'package:apps_consultation_pregnant/app/modules/photo/controllers/photo_controller.dart';
 import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,6 +20,14 @@ class DashboardController extends GetxController {
   ];
 
   List gridMenuList = [];
+
+  void onItemTapped(int index) {
+    if (index == 3) {
+      print('refresh photos');
+      // Memanggil refetch data ketika halaman dipilih
+      Get.find<PhotoController>().refreshData();
+    }
+  }
 
   void assignDataMenuList() {
     gridMenuList = [

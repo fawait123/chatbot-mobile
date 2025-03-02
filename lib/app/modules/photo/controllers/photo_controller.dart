@@ -85,6 +85,7 @@ class PhotoController extends GetxController {
   }
 
   Future<void> refreshData() async {
+    print('refresh data');
     currentPage = 1;
     isLoading.value = true;
     hasMore.value = true;
@@ -161,18 +162,20 @@ class PhotoController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    getCapture();
+    // getCapture();
     scrollController.addListener(onScroll);
   }
 
   @override
   void onReady() {
     super.onReady();
+    print('ready');
   }
 
   @override
   void onClose() {
     super.onClose();
+    print('close');
   }
 
   void increment() => count.value++;

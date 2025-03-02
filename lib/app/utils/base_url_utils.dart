@@ -1,6 +1,6 @@
 class BaseUrl {
   // String url = "api.teledentpregnancy.com";
-  String url = '193.168.195.216:3000';
+  String url = '192.168.56.190:3000';
 
   String getUrlDevice() {
     return 'http://$url';
