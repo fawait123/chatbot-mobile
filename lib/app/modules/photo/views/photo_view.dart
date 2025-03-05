@@ -85,8 +85,10 @@ class ItemList extends StatelessWidget {
       itemBuilder: (context, index) {
         if (index < controller.photoList.length) {
           return GestureDetector(
-            onTap: () =>
-                _showMyDialog(context, controller.photoList[index].note),
+            onTap: () => _showMyDialog(
+                context,
+                controller.photoList[index].note,
+                controller.photoList[index].description),
             child: Container(
               margin: const EdgeInsets.all(10),
               decoration: BoxDecoration(
@@ -120,17 +122,40 @@ class ItemList extends StatelessWidget {
   }
 }
 
-Future<void> _showMyDialog(BuildContext context, String? note) async {
+Future<void> _showMyDialog(
+    BuildContext context, String? note, String? description) async {
   return showDialog<void>(
     context: context,
     barrierDismissible: false, // Pengguna harus menekan tombol
     builder: (BuildContext context) {
       return AlertDialog(
-        title: const Text('Catatan'),
+        title: const Text('Detail Foto'),
         content: SingleChildScrollView(
           child: ListBody(
             children: <Widget>[
-              Text(note == null ? "Belum ada catatan" : note),
+              Text(
+                "Keterangan Foto",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(
+                height: 7,
+              ),
+              Text("$description"),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                "Catatan Foto",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(
+                height: 7,
+              ),
+              Text(note == null ? "-" : note),
             ],
           ),
         ),

@@ -10,6 +10,7 @@ class PhotoModel {
   String? createdAt;
   String? updatedAt;
   String? note;
+  String? description;
   int? v;
 
   PhotoModel(
@@ -20,20 +21,21 @@ class PhotoModel {
       this.createdAt,
       this.updatedAt,
       this.v,
-      this.note});
+      this.note,
+      this.description});
 
   factory PhotoModel.fromMap(Map<String, dynamic> data) => PhotoModel(
-        id: data['_id'] as String?,
-        date: data['date'] as String?,
-        source: data['source'] as String?,
-        userId: data['userID'] == null
-            ? null
-            : UserId.fromMap(data['userID'] as Map<String, dynamic>),
-        createdAt: data['createdAt'] as String?,
-        updatedAt: data['updatedAt'] as String?,
-        v: data['__v'] as int?,
-        note: data['note'] as String?,
-      );
+      id: data['_id'] as String?,
+      date: data['date'] as String?,
+      source: data['source'] as String?,
+      userId: data['userID'] == null
+          ? null
+          : UserId.fromMap(data['userID'] as Map<String, dynamic>),
+      createdAt: data['createdAt'] as String?,
+      updatedAt: data['updatedAt'] as String?,
+      v: data['__v'] as int?,
+      note: data['note'] as String?,
+      description: data['description'] as String?);
 
   Map<String, dynamic> toMap() => {
         '_id': id,

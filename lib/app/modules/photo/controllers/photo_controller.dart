@@ -31,6 +31,7 @@ class PhotoController extends GetxController {
   ScrollController scrollController = ScrollController();
   final fileNameController = TextEditingController().obs;
   Rx<File?> imageUpload = Rx<File?>(null);
+  TextEditingController description = TextEditingController();
 
   var hasMore = true.obs;
   var isReload = false.obs;
@@ -135,8 +136,13 @@ class PhotoController extends GetxController {
   Future postPhoto() async {
     IndicatorDataProgress.showLoading();
     isLoading.value = true;
-    await ApiServices.postFile('capture', imageUpload.value!.path,
-            {'date': DateFormat('yyyy-MM-dd').format(DateTime.now())},
+    await ApiServices.postFile(
+            'capture',
+            imageUpload.value!.path,
+            {
+              'date': DateFormat('yyyy-MM-dd').format(DateTime.now()),
+              'description': description.text
+            },
             keyPhoto: 'source')
         .then((value) {
       if (value['status'] == 'access forbidden') {
