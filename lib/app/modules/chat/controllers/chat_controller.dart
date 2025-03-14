@@ -86,7 +86,7 @@ class ChatController extends GetxController {
       isLoading.value = false;
       // Get.offAll(HomeView());
       Get.back();
-      getMessage();
+      refreshData();
 
       update();
     }).onError((error, stackTrace) {
@@ -96,6 +96,18 @@ class ChatController extends GetxController {
       Get.back();
       update();
     });
+  }
+
+  Future<void> refreshData() async {
+    print('refresh data');
+    currentPage = 1;
+    isLoading.value = true;
+    hasMore.value = true;
+    historyChat.value = [];
+    print("curremt ${currentPage} limit ${currentLimit}");
+    await Future.delayed(const Duration(seconds: 3));
+    getMessage();
+    update();
   }
 
   Future getMessage() async {
@@ -121,6 +133,7 @@ class ChatController extends GetxController {
         });
       }
       isLoading.value = false;
+      print("eksekusi disini ${historyChat.length}");
       update();
     }).onError((error, stackTrace) {
       isLoading.value = false;
