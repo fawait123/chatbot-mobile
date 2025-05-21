@@ -1,3 +1,4 @@
+import 'package:apps_consultation_pregnant/app/components/alert/slider_alert_dialog.dart';
 import 'package:apps_consultation_pregnant/app/components/appbar/custom_default_appbar.dart';
 import 'package:apps_consultation_pregnant/app/core/styles/style_color.dart';
 import 'package:apps_consultation_pregnant/app/core/styles/style_text.dart';
@@ -14,6 +15,11 @@ class DashboardView extends GetView<DashboardController> {
   DashboardView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Future.delayed(Durations.medium1, () {
+        sliderDialog(context);
+      });
+    });
     return GetBuilder(
       init: DashboardController(),
       builder: (controller) {

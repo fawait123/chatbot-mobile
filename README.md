@@ -15,8 +15,11 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Requirement
 - Android Studio / Visual Studio Code
-- Flutter `v.3.19.3`
+- Flutter `v.3.19.3` or `v.3.24.0`
 - Java version OpenJDK `v.11.0.20`
+- openjdk `11.0.20.1 2023-08-22 LTS`
+- OpenJDK Runtime Environment `Corretto-11.0.20.9.1 (build 11.0.20.1+9-LTS)`
+- OpenJDK 64-Bit Server VM `Corretto-11.0.20.9.1 (build 11.0.20.1+9-LTS, mixed mode)`
 
 clone this project into your lokal computer
 ```bash
